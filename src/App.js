@@ -5,33 +5,69 @@ import iconKursyBlendera from './assets/img/blender.svg'
 import iconWeather from './assets/img/weather-forecast.svg'
 import iconChat from './assets/img/chat.svg'
 import iconProjectizer from './assets/img/projectizer.svg'
-import NavItem from './components/NavItem'
+import ProjectPage from './components/ProjectPage';
+import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
+import Home from './components/Home';
+import { connect } from 'react-redux'
+import { digitalarch, projectizer, kursyblendera } from './data/projects.js' 
 
 const uuidv4 = require('uuid/v4');
 
+const mapDispatchToProps = dispatch => {
+  return {
+    loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data})
+  }
+}
+
 const itemList = [
-  {name: 'digitalARCH.pl', framework: 'jQuery', image: iconDigitalarch},
-  {name: 'Projectizer', framework: 'React + Redux // Firebase', image: iconProjectizer},
-  {name: 'kursyblendera.pl', framework: 'jQuery', image: iconKursyBlendera},
-  {name: 'Weather Forecast', framework: 'React', image: iconWeather},
-  {name: 'Chat Module', framework: 'React // Firebase', image: iconChat},
+  {name: 'digitalARCH.pl', framework: 'jQuery', image: iconDigitalarch, data: 'digitalarch'},
+  {name: 'Projectizer', framework: 'React + Redux // Firebase', image: iconProjectizer, data: 'projectizer'},
+  {name: 'kursyblendera.pl', framework: 'jQuery', image: iconKursyBlendera, data: 'kursyblendera'},
+  {name: 'Weather Forecast', framework: 'React', image: iconWeather, data: 'weatherforecast'},
+  {name: 'Chat Module', framework: 'React // Firebase', image: iconChat, data: 'chatmodule'},
 ]
 
-const GalleryItem = function(props) {
+class GalleryItem extends Component {
+
+  loadData = (e) => {
+    switch(e.target.id) {
+      case 'digitalarch':
+        this.props.loadData(digitalarch)
+        break
+      case 'projectizer':
+        this.props.loadData(projectizer)
+        break
+      case 'kursyblendera':
+        this.props.loadData(kursyblendera)
+        break
+      default:
+        return null
+    }
+  }
+
+  render() {
     return (
-        <div className='menuItem'>
-          <p className='itemTitle'>{props.name}</p>
-          <img className ='itemIcon' src={props.image} />
-        </div>
+      <div className='menuItem' onClick={this.loadData} id={this.props.data}>
+        <p className='itemTitle' id={this.props.data}>{this.props.name}</p>
+        <img className ='itemIcon' id={this.props.data} src={this.props.image} />
+      </div>
     )
+  }
 }
+
+
+const MenuItem = connect(null, mapDispatchToProps)(GalleryItem)
 
 const Header = function() {
   return (
     <header>
       <ul>
-        <li>HOME</li>
-        <li>ABOUT ME</li>
+        <Link className='link' to='/'>
+          <li>HOME</li>
+        </Link>
+        <Link className='link' to='/about'>
+          <li>ABOUT ME</li>
+        </Link>
       </ul>
     </header>
   )
@@ -45,12 +81,16 @@ const NavMenu = function() {
           <div className="menuItemsContainer">
             {itemList.map((i)=>{
               return (
-                <GalleryItem 
-                  image={i.image}
-                  name={i.name}
-                  framework={i.framework}
-                  key={uuidv4()}
-                />
+                <Link className='link' to={`/project/${i.name}`}>
+                  <MenuItem
+                    image={i.image}
+                    name={i.name}
+                    framework={i.framework}
+                    key={uuidv4()}
+                    data={i.data}
+                  />
+                </Link>
+
               )
             })}
           </div>
@@ -60,10 +100,12 @@ const NavMenu = function() {
   )
 }
 
+class index extends Component {
 
-const itemArray = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+componentDidMount() {
 
-export class App extends Component {
+}
+
 constructor() {
   super();
   this.state = {
@@ -72,64 +114,26 @@ constructor() {
   }
 }
 
-handleMouseEnter = (e) => {
-  this.setState({multiplier: 30})
-}
-
-handleMouseleave = (e) => {
-  this.setState({multiplier: 5})
-}
-
   render() {
     return (
-      <div className='App'>
-        <Header />
-        <NavMenu />
-        <main>
-          <div className="pageHeader">
-            <div className='textContainer'>
-              <h1>Projectizer</h1>
-              <h5>React + Redux & Firebase</h5>
-            </div>
-          </div>
-          <div className="pageContent">
-            <div className="buttonContainer">
-              <div className="button">website</div>
-              <div className="button">github</div>
-            </div>
-            <div className="textContainer">
-              <p>Project type: Academic project => Commercial Project</p>
-              <p>Date started: May 2019</p>
-              <p>Technologies: React + Redux // Firebase</p>
-              <p>Libraries: Moment.js // React-Moment // React-Datepicker</p>
-              <p>Description: </p>
-            </div>
+      <Router>
+        <div className='App'>
+          <Header />
+          <NavMenu />
+          <main>
+              <Route exact path='/' component={Home} />
+              <Route path='/project' component={ProjectPage} />
 
-          </div>
+          </main>
+          <footer>
+            <p onClick={this.props.loadData}>kgolec93</p>
+          </footer>
+        </div>
+      </Router>
 
-
-            {/* <div className="elementContainer" onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseleave} id='dupa'>
-              {
-                itemArray.map((item) => {
-                  return (
-                    <NavItem 
-                      key={uuidv4()}
-                      item={item}
-                      icon={iconDigitalarch}
-                      multiplier={this.state.multiplier}
-                    />
-                  )
-                })
-              }
-            </div> */}
-
-        </main>
-        <footer>
-          <p>kgolec93</p>
-        </footer>
-      </div>
     )
   }
 }
 
+export const App = connect(null, mapDispatchToProps)(index)
 export default App

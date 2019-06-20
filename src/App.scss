@@ -4,6 +4,10 @@ $transitionTime: 0.5s;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&display=swap&subset=latin-ext');
 
+.link {
+  text-decoration: none;
+  color: $fontColorWhite;
+}
 
 .App {
   text-align: center;
@@ -24,9 +28,14 @@ ul {
 main {
   flex: 1;
   display: flex;
+} 
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: flex-start;
-} 
+}
 
 .menuItem {
   min-width: 300px;
@@ -127,7 +136,7 @@ footer {
 
 .pageHeader {
   width: 100%;
-  height: 256px;
+  height: 270px;
   background-color: tomato;
   display: flex;
   align-items: flex-end;
@@ -137,7 +146,7 @@ footer {
     flex-direction: column;
     text-align: right;
     margin: 0px auto;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
     width: 60vw;
   }
   h1, h5 {
@@ -187,9 +196,10 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     justify-content: flex-end;
     padding: 16px;
     .button {
-      padding: 12px 48px;
+      border: 1px solid rgba(17, 17, 17, 0.281);
+      padding: 8px 48px;
       margin: 0px 8px;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       background-color: $baseColor;
       color: #f3f3f3;
       border-radius: 8px;
