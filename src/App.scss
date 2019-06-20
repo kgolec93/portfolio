@@ -1,0 +1,207 @@
+$baseColor: #888; 
+$fontColorWhite: #f3f3f3;
+$transitionTime: 0.5s;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&display=swap&subset=latin-ext');
+
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: auto;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 100;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+} 
+
+.menuItem {
+  min-width: 300px;
+  width: 300px;
+  margin: 12px 0px;
+  background-color: $baseColor;
+  border-radius: 0px 8px 8px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateX(-236px);
+  box-shadow: 0px 0px 4px 2px rgba(47, 48, 53, 0.411);
+  transition: background-color 0.5s, width 0.5s, height 0.5s, color 0.5s, transform 0.5s;
+}
+
+.itemIcon {
+  width: 64px;
+  height: 64px;
+  padding: 16px;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+.itemTitle {
+  font-weight: 200;
+  transform-origin: 0%;
+  color: white;
+  transition: transform 0.5s ;
+  text-align: center;
+  width: 100%;
+}
+
+.menuItem:hover {
+  background: #383838;
+  cursor: pointer;
+  transform: translateX(0px)
+}
+
+.menuContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 72px;
+}
+
+.menuItemsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.menuBorder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $baseColor;
+  color: $fontColorWhite;
+  display: flex;
+  justify-content: flex-end;
+  opacity: 0.4;
+  transition: opacity 0.5s;
+  &:hover {
+    opacity: 1;
+    ul {
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    transition: margin-top 0.5s, margin-bottom 0.5s;
+    li {
+      margin: 0px 8px;
+      &:hover {
+        cursor: pointer;
+        color: #222;
+      }
+    }
+  }
+}
+
+footer {
+  color: white;
+  background-color: $baseColor;
+  p {
+    margin: 4px;
+  }
+}
+
+.pageHeader {
+  width: 100%;
+  height: 256px;
+  background-color: tomato;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  div {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin: 0px auto;
+    margin-bottom: 32px;
+    width: 60vw;
+  }
+  h1, h5 {
+    font-weight: 100;
+    font-size: 2rem;
+    margin: 0px;
+    color: white;
+  }
+  h1 {
+    font-size: 4rem;
+  }
+}
+
+$itemSize: 140px;
+$rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
+
+.elementContainer {
+  width: 100px;
+  height: 200px;
+  .rotatedDiv {
+    width: $itemSize;
+    height: $itemSize;
+    border: 1px solid black;
+    position: absolute;
+    transform: $rotate3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .itemIcon {
+      width: $itemSize;
+      height: $itemSize;
+      padding: 16px;
+    }
+  }
+}
+
+.pageContent {
+  margin: 0px auto;
+  flex: 1;
+  width: 60vw;
+  height: 100%;
+  text-align: left;
+  background-color: #f3f3f3;
+  box-shadow: 0px 0px 4px 1px rgba(117, 117, 117, 0.418);
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+    .button {
+      padding: 12px 48px;
+      margin: 0px 8px;
+      font-size: 1.2rem;
+      background-color: $baseColor;
+      color: #f3f3f3;
+      border-radius: 8px;
+      transition: background-color $transitionTime;
+      &:hover {
+        cursor: pointer;
+        background-color: #222;
+      }
+    }
+  }
+  .textContainer {
+    padding: 16px;
+  }
+}
+
