@@ -9,7 +9,7 @@ import ProjectPage from './components/ProjectPage';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home';
 import { connect } from 'react-redux'
-import { digitalarch, projectizer, kursyblendera } from './data/projects.js' 
+import data, { digitalarch, projectizer, kursyblendera } from './data/projects.js' 
 
 const uuidv4 = require('uuid/v4');
 
@@ -27,22 +27,19 @@ const itemList = [
   {name: 'Chat Module', framework: 'React // Firebase', image: iconChat, data: 'chatmodule'},
 ]
 
+const itemList2 = Object.keys(data)
+.map(
+  key => ({
+    ...data[key],
+    key: key
+  })
+)
+
 class GalleryItem extends Component {
 
   loadData = (e) => {
-    switch(e.target.id) {
-      case 'digitalarch':
-        this.props.loadData(digitalarch)
-        break
-      case 'projectizer':
-        this.props.loadData(projectizer)
-        break
-      case 'kursyblendera':
-        this.props.loadData(kursyblendera)
-        break
-      default:
-        return null
-    }
+    console.log(itemList2)
+    this.props.loadData(data[e.target.id])
   }
 
   render() {
