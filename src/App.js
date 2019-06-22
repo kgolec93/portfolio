@@ -1,15 +1,10 @@
 import React, { Component } from 'react'
 import './App.scss';
-import iconDigitalarch from './assets/img/digitalarch.png'
-import iconKursyBlendera from './assets/img/blender.svg'
-import iconWeather from './assets/img/weather-forecast.svg'
-import iconChat from './assets/img/chat.svg'
-import iconProjectizer from './assets/img/projectizer.svg'
 import ProjectPage from './components/ProjectPage';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home';
 import { connect } from 'react-redux'
-import data, { digitalarch, projectizer, kursyblendera } from './data/projects.js' 
+import data from './data/projects.js' 
 
 const uuidv4 = require('uuid/v4');
 
@@ -18,14 +13,6 @@ const mapDispatchToProps = dispatch => {
     loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data})
   }
 }
-
-const itemList = [
-  {name: 'digitalARCH.pl', framework: 'jQuery', image: iconDigitalarch, data: 'digitalarch'},
-  {name: 'Projectizer', framework: 'React + Redux // Firebase', image: iconProjectizer, data: 'projectizer'},
-  {name: 'kursyblendera.pl', framework: 'jQuery', image: iconKursyBlendera, data: 'kursyblendera'},
-  {name: 'Weather Forecast', framework: 'React', image: iconWeather, data: 'weatherforecast'},
-  {name: 'Chat Module', framework: 'React // Firebase', image: iconChat, data: 'chatmodule'},
-]
 
 const itemList2 = Object.keys(data)
 .map(
@@ -38,15 +25,15 @@ const itemList2 = Object.keys(data)
 class GalleryItem extends Component {
 
   loadData = (e) => {
-    console.log(itemList2)
+    console.log(this.props.idVal)
     this.props.loadData(data[e.target.id])
   }
 
   render() {
     return (
-      <div className='menuItem' onClick={this.loadData} id={this.props.data}>
-        <p className='itemTitle' id={this.props.data}>{this.props.name}</p>
-        <img className ='itemIcon' id={this.props.data} src={this.props.image} />
+      <div className='menuItem' onClick={this.loadData} id={this.props.idVal}>
+        <p className='itemTitle' id={this.props.idVal}>{this.props.name}</p>
+        <img className ='itemIcon' id={this.props.idVal} src={this.props.image} />
       </div>
     )
   }
@@ -76,11 +63,12 @@ const NavMenu = function() {
       <div className='menuContainer'>
         <div className='menuBorder'>
           <div className="menuItemsContainer">
-            {itemList.map((i)=>{
+            {itemList2.map((i)=>{
               return (
                 <Link className='link' to={`/project/${i.name}`}>
                   <MenuItem
-                    image={i.image}
+                    idVal={i.idVal}
+                    image={i.icon}
                     name={i.name}
                     framework={i.framework}
                     key={uuidv4()}
@@ -100,7 +88,7 @@ const NavMenu = function() {
 class index extends Component {
 
 componentDidMount() {
-
+  this.props.loadData(data.digitalarch)
 }
 
 constructor() {
@@ -123,7 +111,7 @@ constructor() {
 
           </main>
           <footer>
-            <p onClick={this.props.loadData}>kgolec93</p>
+            <p>kgolec93</p>
           </footer>
         </div>
       </Router>
