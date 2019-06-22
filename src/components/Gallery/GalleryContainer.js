@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 
-const testArray = [0,1,2,3,4]
+const testArray = [0,1,2,3,4,5,6,7,8,9,10,11]
 
-const ShowItem = (props) => {
-
-    
+const ImageOverflow = (props) => {    
     return (
         <div className="blackout" onClick={props.hideItem}>
             <div className="showImage">
@@ -27,7 +25,6 @@ export class GalleryContainer extends Component {
             showImage: !this.state.showImage
         })
     }
-
     render() {
         return (
             <div className='galleryContainer'>
@@ -39,7 +36,7 @@ export class GalleryContainer extends Component {
                     )
                 })}
                 {this.state.showImage === true && 
-                    <ShowItem
+                    <ImageOverflow
                         hideItem={this.toggleImage}
                     />
                 }

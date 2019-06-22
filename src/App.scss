@@ -216,17 +216,17 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
 }
 
 .galleryContainer {
-  height: 200px;
-  width: 700px;
-  margin: auto;
-  // position: fixed; // TEST ONLY
+  width: auto;
+  margin: 32px 16px;
   border: 1px dotted red;
   overflow-X: scroll;
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+
   .galleryItem {
-    height: 100px;
-    min-width: 200px;
+    min-height: 108px;
+    min-width: 192px;
     margin: 8px;
     background-color: $baseColor;
     &:hover {
