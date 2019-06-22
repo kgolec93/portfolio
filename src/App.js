@@ -1,55 +1,47 @@
 import React, { Component } from 'react'
 import './App.scss';
-import iconDigitalarch from './assets/img/digitalarch.png'
-import iconKursyBlendera from './assets/img/blender.svg'
-import iconWeather from './assets/img/weather-forecast.svg'
-import iconChat from './assets/img/chat.svg'
-import iconProjectizer from './assets/img/projectizer.svg'
 import ProjectPage from './components/ProjectPage';
 import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home';
 import { connect } from 'react-redux'
-import { digitalarch, projectizer, kursyblendera } from './data/projects.js' 
+import data from './data/projects.js' 
 
 const uuidv4 = require('uuid/v4');
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data})
+    showSideMenu: state.showSideMenu
   }
 }
 
-const itemList = [
-  {name: 'digitalARCH.pl', framework: 'jQuery', image: iconDigitalarch, data: 'digitalarch'},
-  {name: 'Projectizer', framework: 'React + Redux // Firebase', image: iconProjectizer, data: 'projectizer'},
-  {name: 'kursyblendera.pl', framework: 'jQuery', image: iconKursyBlendera, data: 'kursyblendera'},
-  {name: 'Weather Forecast', framework: 'React', image: iconWeather, data: 'weatherforecast'},
-  {name: 'Chat Module', framework: 'React // Firebase', image: iconChat, data: 'chatmodule'},
-]
+const mapDispatchToProps = dispatch => {
+  return {
+    loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data}),
+    showMenu: () => dispatch({type: 'SHOW_SIDE_MENU'}),
+    closeMenu: () => dispatch({type: 'CLOSE_SIDE_MENU'})
+  }
+}
+
+const itemList = Object.keys(data)
+.map(
+  key => ({
+    ...data[key],
+    key: key
+  })
+)
 
 class GalleryItem extends Component {
 
   loadData = (e) => {
-    switch(e.target.id) {
-      case 'digitalarch':
-        this.props.loadData(digitalarch)
-        break
-      case 'projectizer':
-        this.props.loadData(projectizer)
-        break
-      case 'kursyblendera':
-        this.props.loadData(kursyblendera)
-        break
-      default:
-        return null
-    }
+    console.log(this.props.idVal)
+    this.props.loadData(data[e.target.id])
   }
 
   render() {
     return (
-      <div className='menuItem' onClick={this.loadData} id={this.props.data}>
-        <p className='itemTitle' id={this.props.data}>{this.props.name}</p>
-        <img className ='itemIcon' id={this.props.data} src={this.props.image} />
+      <div className='menuItem' onClick={this.loadData} id={this.props.idVal}>
+        <p className='itemTitle' id={this.props.idVal}>{this.props.name}</p>
+        <img className ='itemIcon' id={this.props.idVal} src={this.props.image} />
       </div>
     )
   }
@@ -58,12 +50,12 @@ class GalleryItem extends Component {
 
 const MenuItem = connect(null, mapDispatchToProps)(GalleryItem)
 
-const Header = function() {
+const Header = function(props) {
   return (
     <header>
       <ul>
         <Link className='link' to='/'>
-          <li>HOME</li>
+          <li onClick={props.closeSideMenu}>HOME</li>
         </Link>
         <Link className='link' to='/about'>
           <li>ABOUT ME</li>
@@ -81,9 +73,10 @@ const NavMenu = function() {
           <div className="menuItemsContainer">
             {itemList.map((i)=>{
               return (
-                <Link className='link' to={`/project/${i.name}`}>
+                <Link className='link' to={`/project`}>
                   <MenuItem
-                    image={i.image}
+                    idVal={i.idVal}
+                    image={i.icon}
                     name={i.name}
                     framework={i.framework}
                     key={uuidv4()}
@@ -103,14 +96,9 @@ const NavMenu = function() {
 class index extends Component {
 
 componentDidMount() {
-
-}
-
-constructor() {
-  super();
-  this.state = {
-    headerTitle: "Kamil Golec",
-    multiplier: 5,
+  this.props.loadData(data.digitalarch);
+  if (window.location.href.indexOf('project') > -1){
+    this.props.showMenu()
   }
 }
 
@@ -118,15 +106,17 @@ constructor() {
     return (
       <Router>
         <div className='App'>
-          <Header />
-          <NavMenu />
+          <Header 
+            closeSideMenu={this.props.closeMenu}
+          />
+          {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
               <Route exact path='/' component={Home} />
-              <Route path='/project' component={ProjectPage} />
+              <Route path='/project' component={ProjectPage}  />
 
           </main>
           <footer>
-            <p onClick={this.props.loadData}>kgolec93</p>
+            <p>kgolec93</p>
           </footer>
         </div>
       </Router>
@@ -135,5 +125,5 @@ constructor() {
   }
 }
 
-export const App = connect(null, mapDispatchToProps)(index)
+export const App = connect(mapStateToProps, mapDispatchToProps)(index)
 export default App

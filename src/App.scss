@@ -1,5 +1,6 @@
 $baseColor: #888; 
 $fontColorWhite: #f3f3f3;
+$accentColor: #ff7259;
 $transitionTime: 0.5s;
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,600,700&display=swap&subset=latin-ext');
@@ -7,6 +8,11 @@ $transitionTime: 0.5s;
 .link {
   text-decoration: none;
   color: $fontColorWhite;
+}
+
+a {
+  text-decoration: none;
+  color: initial;
 }
 
 .App {
@@ -24,6 +30,9 @@ ul {
   padding: 0;
 }
 
+.hover:hover {
+  cursor: pointer;
+}
 
 main {
   flex: 1;
@@ -137,7 +146,7 @@ footer {
 .pageHeader {
   width: 100%;
   height: 270px;
-  background-color: tomato;
+  background-color: $accentColor;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -191,12 +200,15 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   text-align: left;
   background-color: #f3f3f3;
   box-shadow: 0px 0px 4px 1px rgba(117, 117, 117, 0.418);
+  p {
+    margin: 16px 0px;
+  }
   .buttonContainer {
     display: flex;
     justify-content: flex-end;
     padding: 16px;
     .button {
-      border: 1px solid rgba(17, 17, 17, 0.281);
+      box-shadow: 0px 0px 6px 2px rgba(34, 34, 34, 0.267);
       padding: 8px 48px;
       margin: 0px 8px;
       font-size: 1.1rem;
@@ -212,6 +224,15 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   }
   .textContainer {
     padding: 16px;
+  }
+}
+
+.inactive {
+  opacity: 0.3;
+  transition: none !important;
+  &:hover {
+    background-color: $baseColor !important;
+    cursor: default !important;
   }
 }
 
@@ -252,4 +273,103 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     background-color: #f3f3f3;
 
   }
+}
+
+.projectSlider {
+  flex: 1;
+  min-width: 100vw;
+  max-width: 100%; 
+  display: flex;
+  align-items: center;
+  overflow-X: auto;
+  justify-content: flex-start;
+  margin: 0px auto;
+  .arrow {
+    position: absolute;
+    // background-color: #f3f3f36c;
+    height: 128px;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    padding: 16px;
+    img {
+      height: 48px;
+      opacity: 0.5;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      transform-origin: 0% auto;
+      &:hover {
+        transform: scale(1.2);
+        opacity: 0.9;
+      }
+    }
+  }
+  .right {
+    right: 0px;
+    transform: rotate(180deg)
+  }
+  .sliderWrapper {
+    display: flex;
+    justify-content: center;
+  }
+  .sliderItem {
+    margin: 8px 16px;
+    width: 300px;
+    height: 400px;
+    background-color: $baseColor;
+    color: $fontColorWhite;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 6px 2px rgba(51, 51, 51, 0.425);
+    transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+    transform-origin: 50% 80%;
+    &:hover {
+      transform: scale(1.2);
+      background-color: $accentColor;
+      .imagesContainer{
+        .iconContainer {
+          opacity: 1;
+        }
+      }
+    }
+    .imagesContainer {
+      border-radius: 6px 6px 0px 0px;
+      background-color: #b4b4b4;
+      width: 100%;
+      flex:1;
+      .iconContainer {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(34, 34, 34, 0.596);
+        opacity: 0.3;
+        transition: opacity 0.2s ease-in-out;
+        .largeIcon {
+          width: 50%;
+        }
+      }
+
+    }
+    .headersContainer {
+      padding: 16px;
+      text-align: left;
+      h1 {
+        margin: 0;
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+      h2 {
+        font-size: 1rem;
+        margin: 0;
+        font-weight: 200;
+      }
+    }
+
+  }
+}
+
+.loader {
+
 }
