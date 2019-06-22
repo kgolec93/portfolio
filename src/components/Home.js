@@ -63,19 +63,24 @@ const Home = () => {
                 </div>
             </div>
             <div className="projectSlider">
-                {itemList.map((i)=>{
-                    return (
-                    <Link className='link' to={`/project`}>
-                        <ConnectedItem
-                            name={i.name}
-                            framework={i.framework}
-                            idVal={i.idVal}
-                            thumbnail={i.thumbnail}
-                            icon={i.icon}
-                         />
-                    </Link>
-                    )
-                })}
+                <div className="arrow">ARR LEFT</div>
+                <div className="sliderWrapper">
+                    {itemList.map((i)=>{
+                        return (
+                        <Link className='link' to={`/project`}>
+                            <ConnectedItem
+                                name={i.name}
+                                framework={i.framework}
+                                idVal={i.idVal}
+                                thumbnail={i.thumbnail}
+                                icon={i.icon}
+                            />
+                        </Link>
+                        )
+                    })}
+                </div>
+
+                <div className="arrow right">ARR RIGHT</div>
             </div>
         </div>
     )

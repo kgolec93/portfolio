@@ -200,6 +200,9 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   text-align: left;
   background-color: #f3f3f3;
   box-shadow: 0px 0px 4px 1px rgba(117, 117, 117, 0.418);
+  p {
+    margin: 16px 0px;
+  }
   .buttonContainer {
     display: flex;
     justify-content: flex-end;
@@ -274,14 +277,32 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
 
 .projectSlider {
   flex: 1;
-  width: 100%; 
+  max-width: 100%; 
   display: flex;
   align-items: center;
-  justify-content: center;
+  overflow-X: auto;
+  justify-content: flex-start;
+  margin: 0px auto;
+  border: 2px dotted red;
+  .arrow {
+    position: absolute;
+    background-color: #f3f3f36c;
+    height: 128px;
+    display: flex;
+    align-items: center;
+  }
+  .right {
+    right: 0px;
+    transform: rotate(180deg)
+  }
+  .sliderWrapper {
+    display: flex;
+    justify-content: center;
+  }
   .sliderItem {
     margin: 8px 16px;
-    width: 256px;
-    height: 324px;
+    width: 300px;
+    height: 400px;
     background-color: $baseColor;
     color: $fontColorWhite;
     border-radius: 6px;
