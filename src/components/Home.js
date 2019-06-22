@@ -89,9 +89,6 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="projectSlider" ref='slider'>
-                    {/* <div className="arrow hover" onClick={this.scrollLeft}>
-                        <img src={iconArrow} alt=""/>
-                    </div> */}
                     <div className="sliderWrapper" >
                         {itemList.map((i)=>{
                             return (
@@ -107,10 +104,6 @@ class Home extends Component {
                             )
                         })}
                     </div>
-{/*     
-                    <div className="arrow right hover"  onClick={this.scrollRight}>
-                        <img src={iconArrow} alt=""/>
-                    </div> */}
                 </div>
             </div>
         )

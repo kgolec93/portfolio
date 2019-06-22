@@ -77,18 +77,18 @@ export const data = {
         github: 'N/A',
         thumbnail: null
     },
-    // audioplayer: {
-    //     idVal: 'audioplayer',
-    //     name: 'Web Audio Player',
-    //     framework: 'jQuery',
-    //     date: 'September 2018'
-    // },
-    // shoppinglist: {
-    //     idVal: 'shoppinglist',
-    //     name: 'Shopping List',
-    //     framework: 'React + Redux // Firebase',
-    //     date: 'July 2019'
-    // }
+    audioplayer: {
+        idVal: 'audioplayer',
+        name: 'Web Audio Player',
+        framework: 'jQuery',
+        date: 'September 2018'
+    },
+    shoppinglist: {
+        idVal: 'shoppinglist',
+        name: 'Shopping List',
+        framework: 'React + Redux // Firebase',
+        date: 'July 2019'
+    }
 }
 
 
