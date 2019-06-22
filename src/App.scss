@@ -215,3 +215,41 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   }
 }
 
+.galleryContainer {
+  width: auto;
+  margin: 32px 16px;
+  border: 1px dotted red;
+  overflow-X: scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  .galleryItem {
+    min-height: 108px;
+    min-width: 192px;
+    margin: 8px;
+    background-color: $baseColor;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.blackout {
+  width: 100vw;
+  height: 100vh;
+  background-color: #22222280;
+  position: fixed;
+  top: 0;
+  left: 0;
+  .showImage {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%) translateY(-50%);
+    width: 50vw;
+    height: 50vh;
+    background-color: #f3f3f3;
+
+  }
+}

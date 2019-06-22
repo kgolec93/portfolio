@@ -1,5 +1,6 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux'
+import GalleryContainer from './Gallery/GalleryContainer'
 
 const mapStateToProps = state => {
     return {
@@ -29,6 +30,7 @@ class index extends Component {
                     <p>Libraries: {this.props.data !== undefined && this.props.data.libraries}</p>
                     <p>Description: {this.props.data !== undefined && this.props.data.description}</p>
                     </div>
+                    <GalleryContainer/>
                 </div>
             </div>
         )
