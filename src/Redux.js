@@ -10,6 +10,14 @@ function reducer(state = initialState, action) {
             return (
                 {...state, data: action.payload}
             );
+        case 'SHOW_SIDE_MENU':
+            return (
+                {...state, showSideMenu: true}
+            )
+        case 'CLOSE_SIDE_MENU':
+                return (
+                    {...state, showSideMenu: false}
+                )    
         
         default:
             return state

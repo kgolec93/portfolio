@@ -8,13 +8,21 @@ import data from './data/projects.js'
 
 const uuidv4 = require('uuid/v4');
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
   return {
-    loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data})
+    showSideMenu: state.showSideMenu
   }
 }
 
-const itemList2 = Object.keys(data)
+const mapDispatchToProps = dispatch => {
+  return {
+    loadData: (data) => dispatch({type: 'LOAD_DATA', payload: data}),
+    showMenu: () => dispatch({type: 'SHOW_SIDE_MENU'}),
+    closeMenu: () => dispatch({type: 'CLOSE_SIDE_MENU'})
+  }
+}
+
+const itemList = Object.keys(data)
 .map(
   key => ({
     ...data[key],
@@ -42,12 +50,12 @@ class GalleryItem extends Component {
 
 const MenuItem = connect(null, mapDispatchToProps)(GalleryItem)
 
-const Header = function() {
+const Header = function(props) {
   return (
     <header>
       <ul>
         <Link className='link' to='/'>
-          <li>HOME</li>
+          <li onClick={props.closeSideMenu}>HOME</li>
         </Link>
         <Link className='link' to='/about'>
           <li>ABOUT ME</li>
@@ -63,9 +71,9 @@ const NavMenu = function() {
       <div className='menuContainer'>
         <div className='menuBorder'>
           <div className="menuItemsContainer">
-            {itemList2.map((i)=>{
+            {itemList.map((i)=>{
               return (
-                <Link className='link' to={`/project/${i.name}`}>
+                <Link className='link' to={`/project`}>
                   <MenuItem
                     idVal={i.idVal}
                     image={i.icon}
@@ -88,14 +96,9 @@ const NavMenu = function() {
 class index extends Component {
 
 componentDidMount() {
-  this.props.loadData(data.digitalarch)
-}
-
-constructor() {
-  super();
-  this.state = {
-    headerTitle: "Kamil Golec",
-    multiplier: 5,
+  this.props.loadData(data.digitalarch);
+  if (window.location.href.indexOf('project') > -1){
+    this.props.showMenu()
   }
 }
 
@@ -103,11 +106,13 @@ constructor() {
     return (
       <Router>
         <div className='App'>
-          <Header />
-          <NavMenu />
+          <Header 
+            closeSideMenu={this.props.closeMenu}
+          />
+          {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
               <Route exact path='/' component={Home} />
-              <Route path='/project' component={ProjectPage} />
+              <Route path='/project' component={ProjectPage}  />
 
           </main>
           <footer>
@@ -120,5 +125,5 @@ constructor() {
   }
 }
 
-export const App = connect(null, mapDispatchToProps)(index)
+export const App = connect(mapStateToProps, mapDispatchToProps)(index)
 export default App
