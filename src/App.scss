@@ -277,19 +277,31 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
 
 .projectSlider {
   flex: 1;
+  min-width: 100vw;
   max-width: 100%; 
   display: flex;
   align-items: center;
   overflow-X: auto;
   justify-content: flex-start;
   margin: 0px auto;
-  border: 2px dotted red;
   .arrow {
     position: absolute;
-    background-color: #f3f3f36c;
+    // background-color: #f3f3f36c;
     height: 128px;
     display: flex;
     align-items: center;
+    z-index: 99;
+    padding: 16px;
+    img {
+      height: 48px;
+      opacity: 0.5;
+      transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+      transform-origin: 0% auto;
+      &:hover {
+        transform: scale(1.2);
+        opacity: 0.9;
+      }
+    }
   }
   .right {
     right: 0px;

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import data from '../data/projects' 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux' 
+import iconArrow from '../assets/icon/arrow.svg'
 
 const itemList = Object.keys(data)
 .map(
@@ -53,37 +54,68 @@ const ConnectedItem = connect(null, mapDispatchToProps)(Item)
 
 
 
-const Home = () => {
-    return (
-        <div className='contentWrapper'>
-            <div className="pageHeader">
-                <div className='textContainer'>
-                <h1>Kamil Golec</h1>
-                <h5>Frontend Developer Portfolio</h5>
-                </div>
-            </div>
-            <div className="projectSlider">
-                <div className="arrow">ARR LEFT</div>
-                <div className="sliderWrapper">
-                    {itemList.map((i)=>{
-                        return (
-                        <Link className='link' to={`/project`}>
-                            <ConnectedItem
-                                name={i.name}
-                                framework={i.framework}
-                                idVal={i.idVal}
-                                thumbnail={i.thumbnail}
-                                icon={i.icon}
-                            />
-                        </Link>
-                        )
-                    })}
-                </div>
+class Home extends Component {
+    i = 0
 
-                <div className="arrow right">ARR RIGHT</div>
+    scrollLeft = () => {
+        const slider = setInterval(()=>{
+            this.i += 4
+            this.refs.slider.scrollLeft -= 4
+            if (this.i === 332) {
+                clearInterval(slider);
+                this.i = 0;
+            }
+        }, 1)
+    }
+
+    scrollRight = () => {
+        const slider = setInterval(()=>{
+            this.i += 4
+            this.refs.slider.scrollLeft += 4
+            if (this.i === 332) {
+                clearInterval(slider);
+                this.i = 0;
+            }
+        }, 1)
+    }
+
+    render() {
+        return (
+            <div className='contentWrapper'>
+                <div className="pageHeader">
+                    <div className='textContainer'>
+                    <h1>Kamil Golec</h1>
+                    <h5>Frontend Developer Portfolio</h5>
+                    </div>
+                </div>
+                <div className="projectSlider" ref='slider'>
+                    {/* <div className="arrow hover" onClick={this.scrollLeft}>
+                        <img src={iconArrow} alt=""/>
+                    </div> */}
+                    <div className="sliderWrapper" >
+                        {itemList.map((i)=>{
+                            return (
+                            <Link className='link' to={`/project`}>
+                                <ConnectedItem
+                                    name={i.name}
+                                    framework={i.framework}
+                                    idVal={i.idVal}
+                                    thumbnail={i.thumbnail}
+                                    icon={i.icon}
+                                />
+                            </Link>
+                            )
+                        })}
+                    </div>
+{/*     
+                    <div className="arrow right hover"  onClick={this.scrollRight}>
+                        <img src={iconArrow} alt=""/>
+                    </div> */}
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+
 }
 
 export default Home
