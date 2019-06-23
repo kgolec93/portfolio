@@ -249,7 +249,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     min-height: 108px;
     min-width: 192px;
     margin: 8px;
-    background-color: $baseColor;
+    background-color: #bebebe;
     &:hover {
       cursor: pointer;
     }
@@ -271,18 +271,48 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     width: 50vw;
     height: 50vh;
     background-color: #f3f3f3;
-
+    #closeIcon {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+      opacity: 0.5;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 0px;
+      height: 48px;
+      transform: translateX(100%) translateY(-50%);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .left {
+      transform: rotate(180deg) translateX(100%) translateY(50%);
+      left: 0px;
+    }
+    #imageContainer {
+      background-color: rgb(189, 189, 189);
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
 .projectSlider {
   flex: 1;
   min-width: 100vw;
-  max-width: 100%; 
+  max-width: 100vw; 
   display: flex;
   align-items: center;
-  overflow-X: auto;
-  justify-content: flex-start;
+  overflow-X: hidden;
+  justify-content: center;
   margin: 0px auto;
   .arrow {
     position: absolute;
@@ -312,9 +342,10 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     justify-content: center;
   }
   .sliderItem {
+    z-index: 99;
     margin: 8px 16px;
     width: 300px;
-    height: 400px;
+    height: 300px;
     background-color: $baseColor;
     color: $fontColorWhite;
     border-radius: 6px;
@@ -327,6 +358,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
       transform: scale(1.2);
       background-color: $accentColor;
       .imagesContainer{
+        border-radius: 8px 8px 0px 0px;
         .iconContainer {
           opacity: 1;
         }
@@ -343,6 +375,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
         display: flex;
         justify-content: center;
         align-items: center;
+        border-radius: 6px 6px 0px 0px;
         background-color: rgba(34, 34, 34, 0.596);
         opacity: 0.3;
         transition: opacity 0.2s ease-in-out;
