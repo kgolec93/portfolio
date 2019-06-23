@@ -1,14 +1,23 @@
-
+/// icons import
 import iconDigitalarch from '../assets/img/digitalarch.png'
 import iconKursyBlendera from '../assets/img/blender.svg'
 import iconWeather from '../assets/img/weather-forecast.svg'
 import iconChat from '../assets/img/chat.svg'
 import iconProjectizer from '../assets/img/projectizer.svg'
 
+/// home images import
 import imgDigitalarch from '../assets/img/imgDigitalarch.jpg'
 import imgKursyBlendera from '../assets/img/imgKursyblendera.jpg'
 import imgProjectizer from '../assets/img/imgProjectizer.jpg'
 import imgWeather from '../assets/img/imgWeather.jpg'
+
+/// screenshots import 
+import scrProjectizer01 from '../assets/gal/projectizer01.jpg';
+import scrProjectizer02 from '../assets/gal/projectizer02.jpg';
+import scrProjectizer03 from '../assets/gal/projectizer03.jpg';
+import scrProjectizer04 from '../assets/gal/projectizer04.jpg';
+import scrProjectizer05 from '../assets/gal/projectizer05.jpg';
+import scrProjectizer06 from '../assets/gal/projectizer06.jpg';
 
 
 export const data = {
@@ -36,7 +45,15 @@ export const data = {
         icon: iconProjectizer,
         link: 'https://wsb-final.web.app',
         github: 'https://github.com/kgolec93/wsb-final-project',
-        thumbnail: imgProjectizer
+        thumbnail: imgProjectizer,
+        screenshots: [
+            scrProjectizer01,
+            scrProjectizer02,
+            scrProjectizer03,
+            scrProjectizer04,
+            scrProjectizer05,
+            scrProjectizer06
+        ]
     },
     kursyblendera: {
         idVal: 'kursyblendera',

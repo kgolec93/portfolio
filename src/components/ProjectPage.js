@@ -40,7 +40,9 @@ class index extends Component {
                         <p>Libraries: {this.props.data.libraries}</p>
                         <p>Description: {this.props.data.description}</p>
                         </div>
-                        <GalleryContainer/>
+                        <GalleryContainer
+                            images={this.props.data.screenshots}
+                        />
                     </div>
                 </div>
             )
