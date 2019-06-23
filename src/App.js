@@ -98,8 +98,11 @@ class index extends Component {
 
 componentDidMount() {
   this.props.loadData(data.digitalarch);
-  if (window.location.href.indexOf('project') > -1 || window.location.href.indexOf('about') > -1){
-    this.props.showMenu()
+  if (window.location.href.indexOf('project') > -1){
+    this.props.showMenu();
+  }
+  else if (window.location.href.indexOf('about') > -1) {
+    this.props.showMenu();
   }
 }
 

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import GalleryContainer from './Gallery/GalleryContainer'
 import loader from '../assets/img/loader.svg'
 import PageHeader from './PageHeader';
+import ChatModule from './Chat/ChatModule'
 
 const mapStateToProps = state => {
     return {
@@ -21,16 +22,22 @@ class index extends Component {
                     />
                     <div className="pageContent">
                         <div className="buttonContainer">
-                        <a href={this.props.data.link}  target="_blank"><div className="button">website</div></a>
-                        
-                        {this.props.data.github === 'N/A' &&
-                            <div className="button inactive">
-                                github
-                            </div>
-                        }
-                        {this.props.data.github !== 'N/A' &&
-                            <a href={this.props.data.github}  target="_blank"><div className="button">github</div></a>
-                        }
+                            {this.props.data.link === 'N/A' &&
+                                <div className="button inactive">
+                                    website
+                                </div>
+                            }
+                            {this.props.data.link !== 'N/A' &&
+                                <a href={this.props.data.link}  target="_blank"><div className="button">website</div></a>
+                            }
+                            {this.props.data.github === 'N/A' &&
+                                <div className="button inactive">
+                                    github
+                                </div>
+                            }
+                            {this.props.data.github !== 'N/A' &&
+                                <a href={this.props.data.github}  target="_blank"><div className="button">github</div></a>
+                            }
                         </div>
                         <div className="textContainer">
                             <h2>Project type</h2>
@@ -52,9 +59,10 @@ class index extends Component {
                                 </div>
                             }
                         </div>
-
-
                     </div>
+                    {this.props.data.idVal === 'chat' &&
+                        <ChatModule />                    
+                    }
                 </div>
             )
         }
