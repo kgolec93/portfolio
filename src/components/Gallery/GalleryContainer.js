@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
+import iconClose from '../../assets/icon/close.svg'
+import iconArrow from '../../assets/icon/arrow.svg'
+
 
 const testArray = [0,1,2,3,4,5,6,7,8,9,10,11]
 
 const ImageOverflow = (props) => {    
     return (
-        <div className="blackout" onClick={props.hideItem}>
+        <div className="blackout" >
             <div className="showImage">
+                <img id='closeIcon' src={iconClose} alt="" onClick={props.hideItem}/>
+                <img src={iconArrow} alt="arr" className="arrow left"/>
+                <img src={iconArrow} alt="arr" className="arrow "/>
 
+                <div id='imageContainer'>IMAGE</div>
             </div>
         </div>
     )

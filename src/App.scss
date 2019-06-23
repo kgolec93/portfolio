@@ -271,7 +271,37 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     width: 50vw;
     height: 50vh;
     background-color: #f3f3f3;
-
+    #closeIcon {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      width: 24px;
+      height: 24px;
+      padding: 4px;
+      opacity: 0.5;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      right: 0px;
+      height: 48px;
+      transform: translateX(100%) translateY(-50%);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .left {
+      transform: rotate(180deg) translateX(100%) translateY(50%);
+      left: 0px;
+    }
+    #imageContainer {
+      background-color: rgb(189, 189, 189);
+      width: 100%;
+      height: 100%;
+    }
   }
 }
 
