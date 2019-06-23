@@ -3,48 +3,109 @@ import iconClose from '../../assets/icon/close.svg'
 import iconArrow from '../../assets/icon/arrow.svg'
 
 
-const testArray = [0,1,2,3,4,5,6,7,8,9,10,11]
+const testArray = ['A','B','C','D','E','F','G','H',8,9,10,11]
 
-const ImageOverflow = (props) => {    
-    return (
-        <div className="blackout" >
-            <div className="showImage">
-                <img id='closeIcon' src={iconClose} alt="" onClick={props.hideItem}/>
-                <img src={iconArrow} alt="arr" className="arrow left"/>
-                <img src={iconArrow} alt="arr" className="arrow "/>
-
-                <div id='imageContainer'>IMAGE</div>
+class ImageOverflow extends Component {
+    render(){
+        return (
+            <div className="blackout" >
+                <div className="showImage">
+                    <img id='closeIcon' src={iconClose} alt="" onClick={this.props.hideItem}/>
+                    <img onClick={this.props.prevImage} src={iconArrow} alt="arr" className="arrow left"/>
+                    <img onClick={this.props.nextImage} src={iconArrow} alt="arr" className="arrow "/>
+                    <div id='imageContainer'>{this.props.selectedImage} & {this.props.item}</div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }    
+}
+
+class GalleryItem extends Component {
+    toggleImage = () => {
+        this.props.toggleImage(this.props.index, this.props.item)
+    }
+
+    render() {
+        return(
+                <div className='galleryItem' 
+                    onClick={this.toggleImage}
+                    id={this.props.index}
+                    item={this.props.item}
+                >
+                <p>TEST: {this.props.item}</p>
+            </div>
+        )
+    }
 }
 
 export class GalleryContainer extends Component {
     constructor() {
         super();
         this.state = {
-            showImage: false
+            showImage: false,
+            selectedImage: null,
+            selectedImageValue: '',
         }
     }
 
-    toggleImage = () => {
+    toggleImage = (index) => {
         this.setState({
-            showImage: !this.state.showImage
+            showImage: !this.state.showImage,
+            selectedImage: index,
+            selectedImageValue: testArray[index]
         })
     }
+
+    nextImage = () => {
+        if (this.state.selectedImage === testArray.length - 1) {
+            this.setState({
+                selectedImage: 0,
+                selectedImageValue: testArray[0]
+            })
+        }
+        else {
+            this.setState({
+                selectedImage: this.state.selectedImage + 1,
+                selectedImageValue: testArray[this.state.selectedImage + 1]
+            })
+        }
+    }
+
+    prevImage = () => {
+        if (this.state.selectedImage === 0) {
+            this.setState({
+                selectedImage: testArray.length - 1,
+                selectedImageValue: testArray[testArray.length - 1]
+            })
+        }
+        else {
+            this.setState({
+                selectedImage: this.state.selectedImage - 1,
+                selectedImageValue: testArray[this.state.selectedImage - 1]
+
+            })
+        }
+    }
+
     render() {
         return (
             <div className='galleryContainer'>
-                {testArray.map((i)=> {
+                {testArray.map((i, index)=> {
                     return (
-                        <div className='galleryItem' onClick={this.toggleImage}>
-                            <p>TEST: {i}</p>
-                        </div>
+                        <GalleryItem 
+                            item={i}
+                            index={index}
+                            toggleImage={this.toggleImage}
+                        />
                     )
                 })}
                 {this.state.showImage === true && 
                     <ImageOverflow
+                        prevImage={this.prevImage}
+                        nextImage={this.nextImage}
                         hideItem={this.toggleImage}
+                        item={this.state.selectedImageValue}
+                        selectedImage={this.state.selectedImage}
                     />
                 }
 
