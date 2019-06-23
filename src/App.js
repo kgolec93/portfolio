@@ -5,6 +5,7 @@ import { Link, BrowserRouter as Router, Route } from 'react-router-dom'
 import Home from './components/Home';
 import { connect } from 'react-redux'
 import data from './data/projects.js' 
+import About from './components/About'
 
 const uuidv4 = require('uuid/v4');
 
@@ -97,7 +98,7 @@ class index extends Component {
 
 componentDidMount() {
   this.props.loadData(data.digitalarch);
-  if (window.location.href.indexOf('project') > -1){
+  if (window.location.href.indexOf('project') > -1 || window.location.href.indexOf('about') > -1){
     this.props.showMenu()
   }
 }
@@ -113,6 +114,7 @@ componentDidMount() {
           <main>
               <Route exact path='/' component={Home} />
               <Route path='/project' component={ProjectPage}  />
+              <Route path='/about' component={About} />
 
           </main>
           <footer>

@@ -105,7 +105,6 @@ class index extends Component {
     }
 
     render() {
-        if (this.props.images !== undefined){
             return (
                 <div className='galleryContainer'>
                     {this.props.images.map((i, index)=> {
@@ -129,10 +128,6 @@ class index extends Component {
     
                 </div>
             )
-        }
-        else {
-            return null;
-        }
 
     }
 }

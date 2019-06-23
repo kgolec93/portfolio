@@ -224,6 +224,14 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   }
   .textContainer {
     padding: 16px;
+    h2 {
+      font-weight: 200;
+      font-size: 1.2rem;
+    }
+    p {
+      margin-top: 4px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -238,8 +246,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
 
 .galleryContainer {
   width: auto;
-  margin: 32px 16px;
-  border: 1px dotted red;
+  margin: 0px 16px;
   overflow-X: scroll;
   display: flex;
   flex-direction: row;
@@ -402,10 +409,16 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
         font-weight: 200;
       }
     }
-
   }
 }
 
-.loader {
-
+#aboutPage {
+  padding: 16px;
+  h2 {
+    font-weight: 200;
+  }
+  p {
+    text-align: justify;
+  }
+  
 }
