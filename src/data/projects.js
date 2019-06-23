@@ -82,18 +82,19 @@ export const data = {
         github: 'N/A',
         thumbnail: imgWeather
     },
-    // chat: {
-    //     idVal: 'chat',
-    //     name: 'Real-time chat module',
-    //     framework: 'React // Websocket',
-    //     date: 'February 2019',
-    //     libraries: 'N/A',
-    //     type: 'Academical project',
-    //     description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies.`,
-    //     icon: iconChat,
-    //     github: 'N/A',
-    //     thumbnail: null
-    // },
+    chat: {
+        idVal: 'chat',
+        name: 'Real-time chat module',
+        framework: 'React // Websocket',
+        date: 'February 2019',
+        libraries: 'N/A',
+        type: 'Academical project',
+        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors`,
+        icon: iconChat,
+        link: 'N/A',
+        github: 'N/A',
+        thumbnail: null
+    },
     // audioplayer: {
     //     idVal: 'audioplayer',
     //     name: 'Web Audio Player',

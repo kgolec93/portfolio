@@ -1,0 +1,157 @@
+.Chat {
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  height: 500px;
+  background: white;
+  border: 1px solid rgb(145, 133, 133);
+  border-radius: 10px;
+  box-shadow: 0px 0px 13px 3px #33333356;
+}
+
+#openChat {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 100px;
+  height: 50px;
+  color: white;
+  background-color: #333;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.openChat {
+  display: flex;
+}
+
+#openChat:hover {
+  background-color: rgb(82, 82, 82);
+}
+
+#openChat > p {
+  user-select: none;
+}
+
+
+.close-button:hover {
+  cursor: pointer;
+}
+
+.chatContent {
+  flex: auto;
+  overflow-y: auto;
+}
+
+
+
+.message {
+  padding: 10px;
+  margin: 10px;
+  background-color: #e2e2e2;
+  border-radius: 5px;
+}
+
+.message p {
+  margin: 2px 0px;
+}
+
+
+.overlay {
+  border-radius: 10px;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #333333cc;
+  justify-content: center;
+}
+
+.loginWindow {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.loginWindow > * {
+  margin: 5px auto;
+}
+
+.loginWindow p {
+  color: white;
+}
+
+.loginInput {
+  min-width: 200px;
+  max-width: 200px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #333;
+  text-align: center;
+}
+
+.loginInput:focus {
+  outline: none;
+}
+
+.loginButton {
+  background-color: #333;
+  color: white;
+  min-width: 200px;
+  max-width: 200px;
+  padding: 10px 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.loginButton:hover {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.details p {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #7e7e7e;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+}
+
+.input-container > input {
+  flex: 4;
+  width: 100%;
+  padding: 5px;
+  border-radius: 5px 0px 0px 5px;
+  border: 1px solid #a8a8a8;
+} 
+
+.input-container > input:focus {
+  outline: none;
+  border: 1px solid #4244e0;
+}
+
+
+.input-container > div {
+  flex: 1;
+  background-color: #5a5a5a;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0px 5px 5px 0px;
+}
