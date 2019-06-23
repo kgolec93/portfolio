@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import data from '../data/projects' 
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux' 
-import iconArrow from '../assets/icon/arrow.svg'
+import PageHeader from './PageHeader';
+// import iconArrow from '../assets/icon/arrow.svg'
 
 const itemList = Object.keys(data)
 .map(
@@ -82,12 +83,10 @@ class Home extends Component {
     render() {
         return (
             <div className='contentWrapper'>
-                <div className="pageHeader">
-                    <div className='textContainer'>
-                    <h1>Kamil Golec</h1>
-                    <h5>Frontend Developer Portfolio</h5>
-                    </div>
-                </div>
+                <PageHeader 
+                    title='Kamil Golec'
+                    subtitle='Frontend Developer Portfolio'
+                />
                 <div className="projectSlider" ref='slider'>
                     <div className="sliderWrapper" >
                         {itemList.map((i)=>{

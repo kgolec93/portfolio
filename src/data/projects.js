@@ -76,7 +76,7 @@ export const data = {
         date: 'January 2019',
         libraries: 'N/A',
         type: 'Academical project',
-        description: `Currently still in development, project temporarily suspended. The advertisement website for the company that is learning the 3d visualisations. Based on jQuery & PHP (contact form).`,
+        description: `Academical project based on React and OpenWeatherMap API. Simple weather forecast app for entire world // Because of API usage limitations, there was only 3-day and current forecast available.`,
         icon: iconWeather,
         link: 'http://pogoda.kgolec.pl',
         github: 'N/A',
