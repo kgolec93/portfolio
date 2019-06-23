@@ -18,7 +18,15 @@ class ImageOverflow extends Component {
                     <img id='closeIcon' src={iconClose} alt="" onClick={this.props.hideItem}/>
                     <img onClick={this.props.prevImage} src={iconArrow} alt="arr" className="arrow left"/>
                     <img onClick={this.props.nextImage} src={iconArrow} alt="arr" className="arrow "/>
-                    <div id='imageContainer'>{this.props.selectedImage} & {this.props.item}</div>
+                    <div 
+                        id='imageContainer'
+                        style={{
+                            backgroundImage: `url('${this.props.item}')`,
+                            backgroundSize: 'cover'
+                        }}
+
+                    >
+                    </div>
                 </div>
             </div>
         )
@@ -37,8 +45,11 @@ class GalleryItem extends Component {
                     onClick={this.toggleImage}
                     id={this.props.index}
                     item={this.props.item}
+                    style={{
+                        backgroundImage: `url('${this.props.item}')`,
+                        backgroundSize: 'cover'
+                    }}
                 >
-                <p>TEST: {this.props.item}</p>
             </div>
         )
     }
