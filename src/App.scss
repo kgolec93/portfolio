@@ -268,8 +268,8 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     top: 50vh;
     left: 50vw;
     transform: translateX(-50%) translateY(-50%);
-    width: 50vw;
-    height: 50vh;
+    width: 70vw;
+    height: 39.375vw;
     background-color: #f3f3f3;
     #closeIcon {
       position: absolute;
@@ -289,7 +289,10 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
       right: 0px;
       height: 48px;
       transform: translateX(100%) translateY(-50%);
+      opacity: 0.2;
+      transition: opacity 0.3s ease-in-out;
       &:hover {
+        opacity: 0.8;
         cursor: pointer;
       }
     }

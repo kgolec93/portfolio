@@ -2,6 +2,7 @@ import React, { Component }  from 'react'
 import { connect } from 'react-redux'
 import GalleryContainer from './Gallery/GalleryContainer'
 import loader from '../assets/img/loader.svg'
+import PageHeader from './PageHeader';
 
 const mapStateToProps = state => {
     return {
@@ -14,12 +15,10 @@ class index extends Component {
         if (this.props.data !== undefined) {
             return (
                 <div className='contentWrapper'>
-                    <div className="pageHeader">
-                        <div className='textContainer'>
-                        <h1>{this.props.data.name}</h1>
-                        <h5>{this.props.data.framework}</h5>
-                        </div>
-                    </div>
+                    <PageHeader
+                        title={this.props.data.name}
+                        subtitle={this.props.data.framework}
+                    />
                     <div className="pageContent">
                         <div className="buttonContainer">
                         <a href={this.props.data.link}  target="_blank"><div className="button">website</div></a>
