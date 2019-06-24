@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import './chatStyle.scss'
 import iconChat from '../../assets/img/chat.svg'
-import iconClose from '../../assets/icon/close.svg'
+import iconClose from '../../assets/icon/closeWht.svg'
+import TestButton from '../TestButton';
 
 const autoresponse = {
     message: 'This is a autoresponse. It appears because for presentation purpose, this chat module is not connected to the socket.io and any web server',
     author: 'Autoresponder',
-    timestamp: '',
+    date: '',
 }
+
+const dateNow = new Date();
 
 class index extends Component {
 
@@ -24,7 +27,10 @@ class index extends Component {
         this.state = {
             isChatOpen: false,
             inputValue: '',
-            messages: ['Write something!']
+            messages: [{message: 'Write something!', date: new Date().getTime(), author: 'Autoresponder'}],
+            isLogged: false,
+            loggedUser: '',
+            loggedUserInput: '',
         }
     }
 
@@ -58,23 +64,52 @@ class index extends Component {
         this.setState({inputValue:''})
     }
 
+    enterLogin = (e) => {
+        this.setState({
+            loggedUserInput: e.target.value
+        })
+    }
+
+    login = () => {
+        this.setState({
+            loggedUser: this.state.loggedUserInput,
+            isLogged: !this.state.isLogged
+        })
+    }
+
+    test = () => {
+        console.log()
+    }
+
     render() {
         return (
             <div className='chatApp'>
+                {/* <TestButton test={this.test} /> */}
                 <div className='chatOpenButton' onClick={this.toggleChat}>
                     <img src={iconChat} alt=""/>
                 </div>
                 {this.state.isChatOpen === true &&
                     <div className='chatWindow'>
+                        {this.state.isLogged === false &&
+                            <div className="loginWindow">
+                                <img src={iconClose} alt="" onClick={this.toggleChat}/>
+                                <div className="loginForm">
+                                    <input type="text" placeholder='Enter your name' onChange={this.enterLogin}/>
+                                    <div className="loginButton" onClick={this.login}>Join chat</div>
+                                </div>
+                            </div>
+                        }
                         <div className="chatHeader">
-                            <p>Chat</p>
+                            <p>Chatting as: <span>{this.state.loggedUser}</span></p>
                             <img src={iconClose} alt="" onClick={this.toggleChat}/>
                         </div>
                         <div className="messageContainer" ref='msgContainer'>
                             {this.state.messages.map((msg)=>{
                                 return(
                                 <div className="messageItem">
-                                    <p>{msg}</p>
+                                    <p>{msg.message}</p>
+                                    <p>{msg.date}</p>
+                                    <p>{msg.author}</p>
                                 </div>
                                 )
                             })}

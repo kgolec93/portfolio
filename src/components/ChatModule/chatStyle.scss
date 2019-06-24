@@ -26,6 +26,15 @@ $transitionTime: 0.2s;
         }
     }
 
+    @mixin closeIconProps {
+        max-height: 32px;
+        width: 32px;
+        padding: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
     .chatWindow {
         width: 256px;
         height: 364px;
@@ -37,6 +46,50 @@ $transitionTime: 0.2s;
         border-radius: 10px;
         display: flex;
         flex-direction: column;
+        .loginWindow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(51, 51, 51, 0.699);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            img {
+                @include closeIconProps();
+                position: absolute;
+                right: 4px;
+                top: 4px;
+            }
+            .loginForm {
+                width: 70%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                input {
+                    padding: 8px;
+                    border: none;
+                    border-radius: 6px;
+                    margin: 8px 0px;
+                    text-align: center;
+                    &::placeholder {
+                        font-style: italic;
+                        text-align: center;
+                    }
+                }
+                .loginButton {
+                    background-color: $accentColor;
+                    font-size: 0.8rem;
+                    padding: 8px;
+                    border-radius: 6px;
+                    color: $fontColorWhite;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
         .chatHeader {
             color: $fontColorWhite;
             padding: 4px;
@@ -45,13 +98,14 @@ $transitionTime: 0.2s;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            img {
-                max-height: 32px;
-                width: 32px;
-                padding: 6px;
-                &:hover {
-                    cursor: pointer;
+            font-size: 0.8rem;
+            p {
+                span {
+                    color: $accentColor;
                 }
+            }
+            img {
+                @include closeIconProps()
             }
         }
         .messageContainer {
