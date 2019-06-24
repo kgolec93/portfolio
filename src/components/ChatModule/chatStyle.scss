@@ -37,7 +37,7 @@ $transitionTime: 0.2s;
 
     .chatWindow {
         width: 256px;
-        height: 364px;
+        height: 400px;
         position: fixed;
         bottom: 90px;
         right: 20px;
@@ -50,7 +50,7 @@ $transitionTime: 0.2s;
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: rgba(51, 51, 51, 0.699);
+            background-color: rgba(51, 51, 51, 0.87);
             border-radius: 8px;
             display: flex;
             justify-content: center;
@@ -110,11 +110,11 @@ $transitionTime: 0.2s;
         }
         .messageContainer {
             flex: 1;
+            height: 100%;
             overflow-y: auto;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            justify-content: flex-end;
             .messageItem {
                 max-width: 200px;
                 margin: 8px 4px;
@@ -123,6 +123,22 @@ $transitionTime: 0.2s;
                 border-radius: 6px;
                 font-size: 0.7rem;
                 text-align: left;
+                display: flex;
+                flex-direction: column;
+                .messageHeader {
+                    font-size: 0.9em;
+                    display: flex;
+                    flex-direction: column;
+                    opacity: 0.8;
+                    justify-content: space-between;
+                    p {
+                        font-style: italic;
+                    }
+                }
+            }
+            .author {
+                background-color: $accentColor !important;
+                color: $fontColorWhite !important;
             }
         }
         .chatFooter {

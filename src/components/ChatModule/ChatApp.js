@@ -4,20 +4,49 @@ import './chatStyle.scss'
 import iconChat from '../../assets/img/chat.svg'
 import iconClose from '../../assets/icon/closeWht.svg'
 import TestButton from '../TestButton';
+import Moment from 'react-moment'
 
 const autoresponse = {
     message: 'This is a autoresponse. It appears because for presentation purpose, this chat module is not connected to the socket.io and any web server',
     author: 'Autoresponder',
-    date: '',
+    date: new Date().getTime(),
 }
 
-const dateNow = new Date();
+class MessageItem extends Component {
+
+    componentDidMount() {
+        if (this.props.author === this.props.loggedUser) {
+            this.setState({style: 'messageItem author'})
+        }
+        else {
+            this.setState({style: 'messageItem'})
+        }
+    }
+
+    constructor() {
+        super();
+        this.state = {
+            style: ''
+        }
+    }
+
+    render() {
+        return(
+            <div className={this.state.style}>
+                <p>{this.props.message}</p>
+                <div className="messageHeader">
+                    <p>~{this.props.author}</p>
+                    <Moment format='DD/MM/YYYY HH:MM'>{this.props.date}</Moment>
+                </div>
+            </div>
+        )
+    }
+}
 
 class index extends Component {
 
     componentDidUpdate() {
         if (this.refs.msgContainer){
-            console.log(this.refs.msgContainer.scrollHeight)
             this.refs.msgContainer.scrollTop = this.refs.msgContainer.scrollHeight
         }
     }
@@ -51,13 +80,20 @@ class index extends Component {
     }
 
     addMessage = () => {
-        this.setState({
-            messages: [...this.state.messages, this.state.inputValue]
-        });
+        if (this.state.inputValue !== ''){
+            this.setState({
+                messages: [...this.state.messages, 
+                {
+                    message: this.state.inputValue,
+                    author: this.state.loggedUser,
+                    date: new Date().getTime()
+                }]
+            });
+        }
 
         const autoresponsder = () => setTimeout(() => {
             this.setState({
-                messages: [...this.state.messages, autoresponse.message]
+                messages: [...this.state.messages, autoresponse]
             });
         }, 1000)
         autoresponsder();
@@ -84,7 +120,6 @@ class index extends Component {
     render() {
         return (
             <div className='chatApp'>
-                {/* <TestButton test={this.test} /> */}
                 <div className='chatOpenButton' onClick={this.toggleChat}>
                     <img src={iconChat} alt=""/>
                 </div>
@@ -106,11 +141,12 @@ class index extends Component {
                         <div className="messageContainer" ref='msgContainer'>
                             {this.state.messages.map((msg)=>{
                                 return(
-                                <div className="messageItem">
-                                    <p>{msg.message}</p>
-                                    <p>{msg.date}</p>
-                                    <p>{msg.author}</p>
-                                </div>
+                                    <MessageItem
+                                        message={msg.message}
+                                        date={msg.date}
+                                        author={msg.author}
+                                        loggedUser={this.state.loggedUser}
+                                    />
                                 )
                             })}
                         </div>
