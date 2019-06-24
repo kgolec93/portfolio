@@ -102,7 +102,7 @@ class ChatModule extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <div className={`Chat ${this.state.isOpened ? 'openChat' : ''}`}>
           <div className="header">
             <p>Group chat</p>

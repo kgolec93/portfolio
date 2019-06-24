@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import GalleryContainer from './Gallery/GalleryContainer'
 import loader from '../assets/img/loader.svg'
 import PageHeader from './PageHeader';
-import ChatModule from './Chat/ChatModule'
+import ChatApp from './ChatModule/ChatApp'
 
 const mapStateToProps = state => {
     return {
@@ -61,7 +61,7 @@ class index extends Component {
                         </div>
                     </div>
                     {this.props.data.idVal === 'chat' &&
-                        <ChatModule />                    
+                        <ChatApp />                    
                     }
                 </div>
             )

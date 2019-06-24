@@ -323,8 +323,8 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   max-width: 100vw; 
   display: flex;
   align-items: center;
-  overflow-X: hidden;
-  justify-content: center;
+  overflow-X: auto;
+  justify-content: flex-start ;
   margin: 0px auto;
   .arrow {
     position: absolute;
@@ -349,9 +349,8 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
     right: 0px;
     transform: rotate(180deg)
   }
-  .sliderWrapper {
-    display: flex;
-    justify-content: center;
+  .start {
+    justify-content: flex-start !important;
   }
   .sliderItem {
     z-index: 99;

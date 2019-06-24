@@ -89,7 +89,7 @@ export const data = {
         date: 'February 2019',
         libraries: 'N/A',
         type: 'Academical project',
-        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors`,
+        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors. This presentation module was rebuild for this portfolio, and is disconnected from the websocket in order to show the possibilities of this simple chat.`,
         icon: iconChat,
         link: 'N/A',
         github: 'N/A',

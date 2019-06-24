@@ -1,0 +1,103 @@
+$buttonSize: 64px;
+$baseColor: #333; 
+$fontColorWhite: #f3f3f3;
+$accentColor: #ff7259;
+$transitionTime: 0.2s;
+
+.chatApp {
+    .chatOpenButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: $buttonSize;
+        height: $buttonSize;
+        background-color: $baseColor;
+        border-radius: 50% 50%;
+        transition: background-color $transitionTime;
+        img {
+            width: $buttonSize;
+            height: $buttonSize;
+            padding: 16px;
+        }
+        &:hover {
+            background-color: $accentColor;
+            cursor: pointer;
+
+        }
+    }
+
+    .chatWindow {
+        width: 256px;
+        height: 364px;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background-color: white;
+        border: 2px solid $baseColor;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        .chatHeader {
+            color: $fontColorWhite;
+            padding: 4px;
+            background-color: #333;
+            border-radius: 8px 8px 0px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            img {
+                max-height: 32px;
+                width: 32px;
+                padding: 6px;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .messageContainer {
+            flex: 1;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: flex-end;
+            .messageItem {
+                max-width: 200px;
+                margin: 8px 4px;
+                padding: 8px;
+                background-color: rgb(214, 214, 214);
+                border-radius: 6px;
+                font-size: 0.7rem;
+                text-align: left;
+            }
+        }
+        .chatFooter {
+            color: $fontColorWhite;
+            padding: 8px 4px;
+            background-color: #333;
+            border-radius: 0px 0px 8px 8px;
+            display: flex;
+            input {
+                width: 100%;
+                border-radius: 4px;
+                border: none;
+                padding: 4px;
+                &::placeholder {
+                    font-style: italic;
+                    font-size: 0.8rem;
+                }
+            }
+            .btnSend {
+                padding: 4px 12px;
+                margin-left: 4px;
+                border-radius: 4px;
+                background-color: $accentColor;
+                font-size: 0.8rem;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #888;
+                }
+            }
+        }
+    }
+}
