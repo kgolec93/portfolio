@@ -60,7 +60,7 @@ const Header = function(props) {
           <li onClick={props.closeSideMenu}>HOME</li>
         </Link>
         <Link className='link' to='/about'>
-          <li>ABOUT ME</li>
+          <li onClick={props.showSideMenu}>ABOUT ME</li>
         </Link>
       </ul>
     </header>
@@ -98,11 +98,11 @@ const NavMenu = function() {
 class index extends Component {
 
 componentDidMount() {
-  this.props.loadData(data.digitalarch);
-  if (window.location.href.indexOf('project') > -1){
+  this.props.loadData(data.digitalarch); // default data loading
+  if (window.location.href.indexOf('project') !== -1){
     this.props.showMenu();
   }
-  else if (window.location.href.indexOf('about') > -1) {
+  else if (window.location.href.indexOf('about') !== -1){
     this.props.showMenu();
   }
 }
@@ -113,6 +113,7 @@ componentDidMount() {
         <div className='App'>
           <Header 
             closeSideMenu={this.props.closeMenu}
+            showSideMenu={this.props.showMenu}
           />
           {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
