@@ -110,17 +110,6 @@ class Home extends Component {
                     title='Kamil Golec'
                     subtitle='Frontend Developer Portfolio'
                 />
-                <button
-                    style={{
-                        position: 'fixed',
-                        top: '20vh',
-                        right: '0',
-                    }}
-                    onClick={this.test}
-
-                >
-                TESTCLICK
-                </button>
                 <div className='projectSlider' ref='slider'>
                     {itemList.map((i)=>{
                         return (

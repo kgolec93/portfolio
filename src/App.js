@@ -6,6 +6,7 @@ import Home from './components/Home';
 import { connect } from 'react-redux'
 import data from './data/projects.js' 
 import About from './components/About'
+import { Switch } from 'react-router-dom'
 
 const uuidv4 = require('uuid/v4');
 
@@ -115,9 +116,19 @@ componentDidMount() {
           />
           {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
+            <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/project' component={ProjectPage}  />
               <Route path='/about' component={About} />
+              <Route render={()=>{
+                return(
+                  <div className='err404'>
+                    <h1>404</h1>
+                    <p>Seems like there is no page like that :(</p>
+                  </div>
+                )}} />
+            </Switch>
+
 
           </main>
           <footer>
