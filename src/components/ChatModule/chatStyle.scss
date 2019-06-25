@@ -55,6 +55,7 @@ $transitionTime: 0.2s;
             display: flex;
             justify-content: center;
             align-content: center;
+            z-index: 99;
             img {
                 @include closeIconProps();
                 position: absolute;
