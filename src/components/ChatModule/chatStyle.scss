@@ -100,12 +100,18 @@ $transitionTime: 0.2s;
             align-items: center;
             font-size: 0.8rem;
             p {
+                flex: 6;
+                text-align: left;
                 span {
                     color: $accentColor;
                 }
             }
-            img {
-                @include closeIconProps()
+            div {
+                display: flex;
+                flex: 1;
+                img {
+                    @include closeIconProps()
+                }
             }
         }
         .messageContainer {
