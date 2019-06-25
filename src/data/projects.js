@@ -10,6 +10,7 @@ import imgDigitalarch from '../assets/img/imgDigitalarch.jpg'
 import imgKursyBlendera from '../assets/img/imgKursyblendera.jpg'
 import imgProjectizer from '../assets/img/imgProjectizer.jpg'
 import imgWeather from '../assets/img/imgWeather.jpg'
+import imgChat from '../assets/img/imgChat.jpg'
 
 /// screenshots import 
 import scrProjectizer01 from '../assets/gal/projectizer01.jpg';
@@ -93,7 +94,7 @@ export const data = {
         icon: iconChat,
         link: 'N/A',
         github: 'N/A',
-        thumbnail: null
+        thumbnail: imgChat
     },
     // audioplayer: {
     //     idVal: 'audioplayer',
