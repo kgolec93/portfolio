@@ -3,6 +3,7 @@ import data from '../data/projects'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux' 
 import PageHeader from './PageHeader';
+import ResizeObserver from 'react-resize-observer';
 // import iconArrow from '../assets/icon/arrow.svg'
 
 const itemList = Object.keys(data)
@@ -29,7 +30,6 @@ class Item extends Component {
     }
 
     style = {
-        // url("paper.gif");
         backgroundImage: `url('${this.props.thumbnail}')`,
         backgroundSize: 'cover',
     }
@@ -53,9 +53,12 @@ class Item extends Component {
 
 const ConnectedItem = connect(null, mapDispatchToProps)(Item)
 
-
+const sliderNewStyle = {
+    justifyContent: 'flex-start'
+};
 
 class Home extends Component {
+
     i = 0
 
     scrollLeft = () => {
@@ -80,6 +83,26 @@ class Home extends Component {
         }, 1)
     }
 
+    test = () => {
+        if (this.refs.slider) {
+            console.log(this.refs.slider.offsetWidth)
+        }
+        console.log(window.innerWidth)
+    }
+
+    sliderStyle = 'projectSlider'
+
+    handleSliderResize = () => {
+        if (this.refs.slider) {
+            if (this.refs.slider.offsetWidth === window.innerWidth) {
+                this.sliderStyle = 'projectSlider start'
+            }
+            else {
+                this.sliderStyle = 'projectSlider'
+            }
+        }
+    }
+
     render() {
         return (
             <div className='contentWrapper'>
@@ -87,22 +110,20 @@ class Home extends Component {
                     title='Kamil Golec'
                     subtitle='Frontend Developer Portfolio'
                 />
-                <div className="projectSlider" ref='slider'>
-                    <div className="sliderWrapper" >
-                        {itemList.map((i)=>{
-                            return (
-                            <Link className='link' to={`/project`}>
-                                <ConnectedItem
-                                    name={i.name}
-                                    framework={i.framework}
-                                    idVal={i.idVal}
-                                    thumbnail={i.thumbnail}
-                                    icon={i.icon}
-                                />
-                            </Link>
-                            )
-                        })}
-                    </div>
+                <div className='projectSlider' ref='slider'>
+                    {itemList.map((i)=>{
+                        return (
+                        <Link className='link' to={`/portfolio/project`}>
+                            <ConnectedItem
+                                name={i.name}
+                                framework={i.framework}
+                                idVal={i.idVal}
+                                thumbnail={i.thumbnail}
+                                icon={i.icon}
+                            />
+                        </Link>
+                        )
+                    })}
                 </div>
             </div>
         )
@@ -111,3 +132,4 @@ class Home extends Component {
 }
 
 export default Home
+

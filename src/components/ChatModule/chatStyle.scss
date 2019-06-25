@@ -1,0 +1,180 @@
+$buttonSize: 64px;
+$baseColor: #333; 
+$fontColorWhite: #f3f3f3;
+$accentColor: #ff7259;
+$transitionTime: 0.2s;
+
+.chatApp {
+    .chatOpenButton {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: $buttonSize;
+        height: $buttonSize;
+        background-color: $baseColor;
+        border-radius: 50% 50%;
+        transition: background-color $transitionTime;
+        img {
+            width: $buttonSize;
+            height: $buttonSize;
+            padding: 16px;
+        }
+        &:hover {
+            background-color: $accentColor;
+            cursor: pointer;
+
+        }
+    }
+
+    @mixin closeIconProps {
+        max-height: 32px;
+        width: 32px;
+        padding: 10px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .chatWindow {
+        width: 256px;
+        height: 400px;
+        position: fixed;
+        bottom: 90px;
+        right: 20px;
+        background-color: white;
+        border: 2px solid $baseColor;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        .loginWindow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(51, 51, 51, 0.87);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            z-index: 99;
+            img {
+                @include closeIconProps();
+                position: absolute;
+                right: 4px;
+                top: 4px;
+            }
+            .loginForm {
+                width: 70%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                input {
+                    padding: 8px;
+                    border: none;
+                    border-radius: 6px;
+                    margin: 8px 0px;
+                    text-align: center;
+                    &::placeholder {
+                        font-style: italic;
+                        text-align: center;
+                    }
+                }
+                .loginButton {
+                    background-color: $accentColor;
+                    font-size: 0.8rem;
+                    padding: 8px;
+                    border-radius: 6px;
+                    color: $fontColorWhite;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .chatHeader {
+            color: $fontColorWhite;
+            padding: 4px;
+            background-color: #333;
+            border-radius: 8px 8px 0px 0px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            p {
+                flex: 6;
+                text-align: left;
+                span {
+                    color: $accentColor;
+                }
+            }
+            div {
+                display: flex;
+                flex: 1;
+                img {
+                    @include closeIconProps()
+                }
+            }
+        }
+        .messageContainer {
+            flex: 1;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            .messageItem {
+                max-width: 200px;
+                margin: 8px 4px;
+                padding: 8px;
+                background-color: rgb(214, 214, 214);
+                border-radius: 6px;
+                font-size: 0.7rem;
+                text-align: left;
+                display: flex;
+                flex-direction: column;
+                .messageHeader {
+                    font-size: 0.9em;
+                    display: flex;
+                    flex-direction: column;
+                    opacity: 0.8;
+                    justify-content: space-between;
+                    p {
+                        font-style: italic;
+                    }
+                }
+            }
+            .author {
+                background-color: $accentColor !important;
+                color: $fontColorWhite !important;
+            }
+        }
+        .chatFooter {
+            color: $fontColorWhite;
+            padding: 8px 4px;
+            background-color: #333;
+            border-radius: 0px 0px 8px 8px;
+            display: flex;
+            input {
+                width: 100%;
+                border-radius: 4px;
+                border: none;
+                padding: 4px;
+                &::placeholder {
+                    font-style: italic;
+                    font-size: 0.8rem;
+                }
+            }
+            .btnSend {
+                padding: 4px 12px;
+                margin-left: 4px;
+                border-radius: 4px;
+                background-color: $accentColor;
+                font-size: 0.8rem;
+                &:hover {
+                    cursor: pointer;
+                    background-color: #888;
+                }
+            }
+        }
+    }
+}

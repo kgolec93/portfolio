@@ -6,6 +6,7 @@ import Home from './components/Home';
 import { connect } from 'react-redux'
 import data from './data/projects.js' 
 import About from './components/About'
+import { Switch } from 'react-router-dom'
 
 const uuidv4 = require('uuid/v4');
 
@@ -55,11 +56,11 @@ const Header = function(props) {
   return (
     <header>
       <ul>
-        <Link className='link' to='/'>
+        <Link className='link' to='/portfolio/'>
           <li onClick={props.closeSideMenu}>HOME</li>
         </Link>
-        <Link className='link' to='/about'>
-          <li>ABOUT ME</li>
+        <Link className='link' to='/portfolio/about'>
+          <li onClick={props.showSideMenu}>ABOUT ME</li>
         </Link>
       </ul>
     </header>
@@ -74,7 +75,7 @@ const NavMenu = function() {
           <div className="menuItemsContainer">
             {itemList.map((i)=>{
               return (
-                <Link className='link' to={`/project`}>
+                <Link className='link' to={`/portfolio/project`}>
                   <MenuItem
                     idVal={i.idVal}
                     image={i.icon}
@@ -97,11 +98,11 @@ const NavMenu = function() {
 class index extends Component {
 
 componentDidMount() {
-  this.props.loadData(data.digitalarch);
-  if (window.location.href.indexOf('project') > -1){
+  this.props.loadData(data.digitalarch); // default data loading
+  if (window.location.href.indexOf('project') !== -1){
     this.props.showMenu();
   }
-  else if (window.location.href.indexOf('about') > -1) {
+  else if (window.location.href.indexOf('about') !== -1){
     this.props.showMenu();
   }
 }
@@ -112,12 +113,23 @@ componentDidMount() {
         <div className='App'>
           <Header 
             closeSideMenu={this.props.closeMenu}
+            showSideMenu={this.props.showMenu}
           />
           {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
-              <Route exact path='/' component={Home} />
-              <Route path='/project' component={ProjectPage}  />
-              <Route path='/about' component={About} />
+            <Switch>
+              <Route exact path='/portfolio' component={Home} />
+              <Route path='/portfolio/project' component={ProjectPage}  />
+              <Route path='/portfolio/about' component={About} />
+              <Route render={()=>{
+                return(
+                  <div className='err404'>
+                    <h1>404</h1>
+                    <p>Seems like there is no page like that :(</p>
+                  </div>
+                )}} />
+            </Switch>
+
 
           </main>
           <footer>

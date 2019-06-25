@@ -10,6 +10,7 @@ import imgDigitalarch from '../assets/img/imgDigitalarch.jpg'
 import imgKursyBlendera from '../assets/img/imgKursyblendera.jpg'
 import imgProjectizer from '../assets/img/imgProjectizer.jpg'
 import imgWeather from '../assets/img/imgWeather.jpg'
+import imgChat from '../assets/img/imgChat.jpg'
 
 /// screenshots import 
 import scrProjectizer01 from '../assets/gal/projectizer01.jpg';
@@ -89,11 +90,11 @@ export const data = {
         date: 'February 2019',
         libraries: 'N/A',
         type: 'Academical project',
-        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors`,
+        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors. This presentation module was rebuild for this portfolio, and is disconnected from the websocket in order to show the possibilities of this simple chat.`,
         icon: iconChat,
         link: 'N/A',
         github: 'N/A',
-        thumbnail: null
+        thumbnail: imgChat
     },
     // audioplayer: {
     //     idVal: 'audioplayer',
