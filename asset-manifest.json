@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/portfolio/static/css/main.be0a5f3f.chunk.css",
+    "main.js": "/portfolio/static/js/main.3c07b9b9.chunk.js",
+    "main.js.map": "/portfolio/static/js/main.3c07b9b9.chunk.js.map",
+    "runtime~main.js": "/portfolio/static/js/runtime~main.f308c8e6.js",
+    "runtime~main.js.map": "/portfolio/static/js/runtime~main.f308c8e6.js.map",
+    "static/js/2.7e5d2fa8.chunk.js": "/portfolio/static/js/2.7e5d2fa8.chunk.js",
+    "static/js/2.7e5d2fa8.chunk.js.map": "/portfolio/static/js/2.7e5d2fa8.chunk.js.map",
+    "index.html": "/portfolio/index.html",
+    "precache-manifest.973bd59e3243c2b183f1088c00029345.js": "/portfolio/precache-manifest.973bd59e3243c2b183f1088c00029345.js",
+    "service-worker.js": "/portfolio/service-worker.js",
+    "static/css/main.be0a5f3f.chunk.css.map": "/portfolio/static/css/main.be0a5f3f.chunk.css.map",
+    "static/media/arrow.svg": "/portfolio/static/media/arrow.cda0078a.svg",
+    "static/media/blender.svg": "/portfolio/static/media/blender.3bfbb926.svg",
+    "static/media/chat.svg": "/portfolio/static/media/chat.99aa6420.svg",
+    "static/media/close.svg": "/portfolio/static/media/close.b23a7a22.svg",
+    "static/media/closeWht.svg": "/portfolio/static/media/closeWht.2856e383.svg",
+    "static/media/imgDigitalarch.jpg": "/portfolio/static/media/imgDigitalarch.95e9109a.jpg",
+    "static/media/imgKursyblendera.jpg": "/portfolio/static/media/imgKursyblendera.c646dea9.jpg",
+    "static/media/imgProjectizer.jpg": "/portfolio/static/media/imgProjectizer.c99366dc.jpg",
+    "static/media/imgWeather.jpg": "/portfolio/static/media/imgWeather.9637b73a.jpg",
+    "static/media/loader.svg": "/portfolio/static/media/loader.337899df.svg",
+    "static/media/projectizer.svg": "/portfolio/static/media/projectizer.0944f392.svg",
+    "static/media/projectizer01.jpg": "/portfolio/static/media/projectizer01.c87d3546.jpg",
+    "static/media/projectizer02.jpg": "/portfolio/static/media/projectizer02.3be40b32.jpg",
+    "static/media/projectizer03.jpg": "/portfolio/static/media/projectizer03.4f2b0044.jpg",
+    "static/media/projectizer04.jpg": "/portfolio/static/media/projectizer04.063efddc.jpg",
+    "static/media/projectizer05.jpg": "/portfolio/static/media/projectizer05.f8bb0a17.jpg",
+    "static/media/projectizer06.jpg": "/portfolio/static/media/projectizer06.8d6e70d3.jpg",
+    "static/media/weather-forecast.svg": "/portfolio/static/media/weather-forecast.7dac0661.svg"
+  }
+}
