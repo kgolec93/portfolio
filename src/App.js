@@ -56,10 +56,10 @@ const Header = function(props) {
   return (
     <header>
       <ul>
-        <Link className='link' to='/'>
+        <Link className='link' to='/portfolio/'>
           <li onClick={props.closeSideMenu}>HOME</li>
         </Link>
-        <Link className='link' to='/about'>
+        <Link className='link' to='/portfolio/about'>
           <li onClick={props.showSideMenu}>ABOUT ME</li>
         </Link>
       </ul>
@@ -75,7 +75,7 @@ const NavMenu = function() {
           <div className="menuItemsContainer">
             {itemList.map((i)=>{
               return (
-                <Link className='link' to={`/project`}>
+                <Link className='link' to={`/portfolio/project`}>
                   <MenuItem
                     idVal={i.idVal}
                     image={i.icon}
@@ -118,9 +118,9 @@ componentDidMount() {
           {this.props.showSideMenu ? <NavMenu /> : null}
           <main>
             <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/project' component={ProjectPage}  />
-              <Route path='/about' component={About} />
+              <Route exact path='/portfolio' component={Home} />
+              <Route path='/portfolio/project' component={ProjectPage}  />
+              <Route path='/portfolio/about' component={About} />
               <Route render={()=>{
                 return(
                   <div className='err404'>

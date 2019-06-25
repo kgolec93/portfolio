@@ -113,7 +113,7 @@ class Home extends Component {
                 <div className='projectSlider' ref='slider'>
                     {itemList.map((i)=>{
                         return (
-                        <Link className='link' to={`/project`}>
+                        <Link className='link' to={`/portfolio/project`}>
                             <ConnectedItem
                                 name={i.name}
                                 framework={i.framework}
