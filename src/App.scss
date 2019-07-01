@@ -337,7 +337,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   display: flex;
   align-items: center;
   overflow-X: auto;
-  justify-content: flex-start ;
+  justify-content: center ;
   margin: 0px auto;
   .arrow {
     position: absolute;
@@ -450,5 +450,11 @@ footer {
       width: 32px;
       height: 32x;
     }
+  }
+}
+
+@media only screen and (max-width: 1660px) {
+  .projectSlider {
+    justify-content: flex-start;
   }
 }
