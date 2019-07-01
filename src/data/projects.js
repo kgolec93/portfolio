@@ -95,19 +95,20 @@ export const data = {
         link: 'N/A',
         github: 'N/A',
         thumbnail: imgChat
-    },
-    // audioplayer: {
-    //     idVal: 'audioplayer',
-    //     name: 'Web Audio Player',
-    //     framework: 'jQuery',
-    //     date: 'September 2018'
-    // },
-    // shoppinglist: {
-    //     idVal: 'shoppinglist',
-    //     name: 'Shopping List',
-    //     framework: 'React + Redux // Firebase',
-    //     date: 'July 2019'
-    // }
+    },    
+    chat: {
+        idVal: 'chat',
+        name: 'Real-time chat module',
+        framework: 'React // Websocket',
+        date: 'February 2019',
+        libraries: 'N/A',
+        type: 'Academical project',
+        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors. This presentation module was rebuild for this portfolio, and is disconnected from the websocket in order to show the possibilities of this simple chat.`,
+        icon: iconChat,
+        link: 'N/A',
+        github: 'N/A',
+        thumbnail: imgChat
+    }
 }
 
 
