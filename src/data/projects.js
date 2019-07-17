@@ -31,7 +31,7 @@ export const data = {
         type: 'Commercial website // Portfolio',
         description: 'Portfolio website for my digital.ARCH 3d visualisation company. Based on HTML5 and Pure CSS, supported by jQuery. Current website is actually the third version of digitalarch.pl, and the very special project that pushed me into the Frontend Development. The contact form is working, supported by PHP. The one interesting feature on this website is the header menu and the gallery, that is generating itself from the javascript. The script looks raw, but it was one of my first attempts to learn JS.',
         icon: iconDigitalarch,
-        link: 'http://www.digitalarch.pl',
+        link: 'https://kgolec93.github.io/digitalarch/index.html',
         github: 'https://github.com/kgolec93/digitalarch',
         thumbnail: imgDigitalarch
     },
