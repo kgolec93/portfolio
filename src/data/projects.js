@@ -1,13 +1,11 @@
 /// icons import
 import iconDigitalarch from '../assets/img/digitalarch.png'
-import iconKursyBlendera from '../assets/img/blender.svg'
 import iconWeather from '../assets/img/weather-forecast.svg'
 import iconChat from '../assets/img/chat.svg'
 import iconProjectizer from '../assets/img/projectizer.svg'
 
 /// home images import
 import imgDigitalarch from '../assets/img/imgDigitalarch.jpg'
-import imgKursyBlendera from '../assets/img/imgKursyblendera.jpg'
 import imgProjectizer from '../assets/img/imgProjectizer.jpg'
 import imgWeather from '../assets/img/imgWeather.jpg'
 import imgChat from '../assets/img/imgChat.jpg'
@@ -24,14 +22,14 @@ import scrProjectizer06 from '../assets/gal/projectizer06.jpg';
 export const data = {
     digitalarch: {
         idVal: 'digitalarch',
-        name: 'digitalARCH.pl',
+        name: 'digitalARCH',
         framework: 'jQuery',
         date: 'June 2018',
         libraries: 'N/A',
         type: 'Commercial website // Portfolio',
-        description: 'Portfolio website for my digital.ARCH 3d visualisation company. Based on HTML5 and Pure CSS, supported by jQuery. Current website is the third version of digitalarch.pl, and the very special project that pushed me into the Frontend Development. The contact form is powered by PHP.',
+        description: 'Portfolio website for my digital.ARCH 3d visualisation company. Based on HTML5 and Pure CSS, supported by jQuery. Current website is actually the third version of digitalarch.pl, and the very special project that pushed me into the Frontend Development. The contact form is working, supported by PHP. The one interesting feature on this website is the header menu and the gallery, that is generating itself from the javascript. The script looks raw, but it was one of my first attempts to learn JS. Currently the project is no longer supported, so the original domain was moved to GithubPages',
         icon: iconDigitalarch,
-        link: 'http://www.digitalarch.pl',
+        link: 'https://kgolec93.github.io/digitalarch/index.html',
         github: 'https://github.com/kgolec93/digitalarch',
         thumbnail: imgDigitalarch
     },
@@ -42,7 +40,7 @@ export const data = {
         date: 'May 2019',
         libraries: 'Moment.js // React-Moment // React-Datepicker // uuid',
         type: `Final academical project => Commercial application`,
-        description: `Projectizer is an app created to support the management of architectural project development. Used and tested in AmRest. I'm planning to push the development of this application and continue adding another useful features into it, and also I want to start implementing this app to architectural companies.`,
+        description: `Projectizer is an app created to support the management of architectural project process. The project was born from the idea of creating more advanced to-do list, that could help to organize the work. Currently this app is used and tested in AmRest, by me and my co-workers, where I am working so far. The application consists of fully working authorization system (provided by Firebase) and is connected to the Firebase Realtime Database. I'm planning to push the development of this application and continue adding another useful features into it, and also I want to start implementing this app to architectural companies. I've also plan to re-write this app to the mobile version in React Native`,
         icon: iconProjectizer,
         link: 'https://wsb-final.web.app',
         github: 'https://github.com/kgolec93/wsb-final-project',
@@ -56,20 +54,6 @@ export const data = {
             scrProjectizer06
         ]
     },
-    kursyblendera: {
-        idVal: 'kursyblendera',
-        name: 'kursyblendera.pl',
-        framework: 'jQuery',
-        date: 'February 2019',
-        libraries: 'N/A',
-        type: 'Commercial website => In development',
-        description: `Currently still in development, project temporarily suspended. The advertisement website for the company that is learning the 3d visualisations. Based on jQuery & PHP (contact form).`,
-        icon: iconKursyBlendera,
-        link: 'https://kgolec93.github.io/blender-kurs/',
-        github: 'https://github.com/kgolec93/blender-kurs',
-        thumbnail: imgKursyBlendera
-        
-    },
     weatherforecast: {
         idVal: 'weatherforecast',
         name: 'Weather Forecast',
@@ -77,7 +61,7 @@ export const data = {
         date: 'January 2019',
         libraries: 'N/A',
         type: 'Academical project',
-        description: `Academical project based on React and OpenWeatherMap API. Simple weather forecast app for entire world // Because of API usage limitations, there was only 3-day and current forecast available.`,
+        description: `Academical project based on React and OpenWeatherMap API. Simple weather forecast app for entire world // Because of API usage limitations, there was only 3-day and current forecast available. For educational purposes, no additional libraries were added to this project, in order to train various javascript technics, like transforming date and time, or providing custom images instead of the API-provided icons.`,
         icon: iconWeather,
         link: 'http://pogoda.kgolec.pl',
         github: 'N/A',
@@ -90,24 +74,12 @@ export const data = {
         date: 'February 2019',
         libraries: 'N/A',
         type: 'Academical project',
-        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this application. The app is connected to the backend developed by one of the university professors. This presentation module was rebuild for this portfolio, and is disconnected from the websocket in order to show the possibilities of this simple chat.`,
+        description: `Simple real-time chat module based on websocket technology, developed during post-graduate studies and implemented to this portfolio application. The app is connected to the backend developed by one of the university professors. This presentation module was rebuild for this portfolio, and is disconnected from the websocket in order to show the possibilities of this simple chat. The app consist of a simple no-password login system, and the user can send correspondation to the other users connected to this chat.`,
         icon: iconChat,
         link: 'N/A',
         github: 'N/A',
         thumbnail: imgChat
-    },
-    // audioplayer: {
-    //     idVal: 'audioplayer',
-    //     name: 'Web Audio Player',
-    //     framework: 'jQuery',
-    //     date: 'September 2018'
-    // },
-    // shoppinglist: {
-    //     idVal: 'shoppinglist',
-    //     name: 'Shopping List',
-    //     framework: 'React + Redux // Firebase',
-    //     date: 'July 2019'
-    // }
+    }
 }
 
 

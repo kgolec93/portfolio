@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import data from './data/projects.js' 
 import About from './components/About'
 import { Switch } from 'react-router-dom'
+import githubLogo from './assets/icon/github.svg'
 
 const uuidv4 = require('uuid/v4');
 
@@ -133,7 +134,12 @@ componentDidMount() {
 
           </main>
           <footer>
-            <p>kgolec93</p>
+            <div>
+              <p>kgolec93 &copy; 2019</p>
+              <a href="https://github.com/kgolec93/portfolio">
+                <img src={githubLogo} alt="github"/>
+              </a>
+            </div>
           </footer>
         </div>
       </Router>

@@ -337,7 +337,7 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   display: flex;
   align-items: center;
   overflow-X: auto;
-  justify-content: flex-start ;
+  justify-content: center ;
   margin: 0px auto;
   .arrow {
     position: absolute;
@@ -433,6 +433,28 @@ $rotate3d: rotateX(44deg) rotateY(0deg) rotateZ(33deg);
   }
   p {
     text-align: justify;
+  } 
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 256px; 
+    padding: 8px;
+    img {
+      margin-left: 16px;
+      width: 32px;
+      height: 32x;
+    }
   }
-  
+}
+
+@media only screen and (max-width: 1660px) {
+  .projectSlider {
+    justify-content: flex-start;
+  }
 }
